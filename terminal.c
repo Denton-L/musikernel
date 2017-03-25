@@ -9,7 +9,7 @@ static const size_t VGA_HEIGHT = 25;
 static size_t terminal_column;
 static size_t terminal_row;
 static uint8_t terminal_color;
-static uint16_t *terminal_buffer = (uint16_t *) 0xB8000;
+static volatile uint16_t *terminal_buffer = (uint16_t *) 0xB8000;
 
 inline uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg) {
 	return fg | bg << 4;
