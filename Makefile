@@ -1,15 +1,18 @@
-CC=i686-elf-gcc -Wall -ffreestanding
-AS=i686-elf-as
+CC = i686-elf-gcc -Wall -ffreestanding -c
+AS = i686-elf-as
+
+assembly_objects = boot.o
+c_objects = string.o
 
 .PHONY: all clean
 
-all: boot.o string.o
+all: $(assembly_objects) $(c_objects)
 
-string.o: string.c
-	$(CC) -c string.c -o string.o
+$(c_objects): %.o: %.c
+	$(CC) $< -o $@
 
-boot.o: boot.s
-	$(AS) boot.s -o boot.o
+$(assembly_objects): %.o: %.s
+	$(AS) $< -o $@
 
 clean:
 	rm *.o
