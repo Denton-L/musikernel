@@ -2,7 +2,7 @@ CC = i686-elf-gcc -Wall -ffreestanding -c
 AS = i686-elf-as
 
 assembly_objects = boot.o
-c_objects = string.o
+c_objects = string.o terminal.o
 
 .PHONY: all clean
 
