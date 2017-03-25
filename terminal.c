@@ -28,11 +28,20 @@ void terminal_putentryat(uint16_t entry, size_t x, size_t y) {
 }
 
 void terminal_putchar(char c) {
-	terminal_putentryat(vga_entry(c, terminal_color), terminal_column, terminal_row);
-	if (++terminal_column >= VGA_WIDTH) {
-		terminal_column = 0;
-		if (++terminal_row >= VGA_HEIGHT)
-			terminal_row = 0;
+	switch (c) {
+		case '\n':
+			terminal_column = 0;
+			if (++terminal_row >= VGA_HEIGHT)
+				terminal_row = 0;
+			break;
+		default:
+			terminal_putentryat(vga_entry(c, terminal_color), terminal_column, terminal_row);
+			if (++terminal_column >= VGA_WIDTH) {
+				terminal_column = 0;
+				if (++terminal_row >= VGA_HEIGHT)
+					terminal_row = 0;
+			}
+			break;
 	}
 }
 
