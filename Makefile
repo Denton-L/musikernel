@@ -1,18 +1,22 @@
-CC = i686-elf-gcc -Wall -ffreestanding -c
+CC = i686-elf-gcc -Wall -ffreestanding
 AS = i686-elf-as
 
+linker_file = linker.ld
 assembly_objects = boot.o
-c_objects = string.o terminal.o
+c_objects = string.o terminal.o musikernel.o
+objects = $(assembly_objects) $(c_objects)
+output_image = musikernel.bin
 
-.PHONY: all clean
+.PHONY: clean
 
-all: $(assembly_objects) $(c_objects)
+$(output_image) : $(linker_file) $(objects)
+	$(CC) -T $(linker_file) -o $(output_image) -nostdlib $(objects) -lgcc
 
 $(c_objects): %.o: %.c
-	$(CC) $< -o $@
+	$(CC) -c $< -o $@
 
 $(assembly_objects): %.o: %.s
 	$(AS) $< -o $@
 
 clean:
-	rm *.o
+	rm -f *.o *.bin
