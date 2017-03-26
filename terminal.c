@@ -85,6 +85,6 @@ void terminal_clear() {
 }
 
 void terminal_initialize() {
-	terminal_setcolor(vga_entry_color(VGA_COLOR_GREEN, VGA_COLOR_BLACK));
+	terminal_setcolor(vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK));
 	terminal_clear();
 }
