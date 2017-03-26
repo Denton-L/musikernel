@@ -58,7 +58,7 @@ void terminal_clear() {
 	terminal_column = 0;
 	terminal_row = 0;
 
-	for (index = VGA_WIDTH * VGA_HEIGHT - 1; index >= 0; index--)
+	for (index = 0; index < VGA_WIDTH * VGA_HEIGHT; index++)
 		terminal_buffer[index] = blank;
 }
 
