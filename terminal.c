@@ -54,14 +54,15 @@ void terminal_writestring(const char *str) {
 void terminal_clear() {
 	const uint16_t blank = vga_entry(' ', terminal_color);
 	size_t index;
+
+	terminal_column = 0;
+	terminal_row = 0;
+
 	for (index = VGA_WIDTH * VGA_HEIGHT - 1; index >= 0; index--)
 		terminal_buffer[index] = blank;
 }
 
 void terminal_initialize() {
-	terminal_column = 0;
-	terminal_row = 0;
 	terminal_setcolor(vga_entry_color(VGA_COLOR_GREEN, VGA_COLOR_BLACK));
-
 	terminal_clear();
 }
