@@ -1,4 +1,4 @@
-CC = i686-elf-gcc -Wall -Wextra -ffreestanding
+CC = i686-elf-gcc -Wall -Wextra -Werror -ffreestanding
 AS = i686-elf-as
 
 linker_file = linker.ld
