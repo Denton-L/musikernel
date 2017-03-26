@@ -26,7 +26,9 @@ enum vga_color {
 inline uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg);
 inline uint16_t vga_entry(unsigned char c, uint8_t color);
 void terminal_setcolor(uint8_t color);
+uint16_t terminal_getentryat(size_t x, size_t y);
 void terminal_putentryat(uint16_t entry, size_t x, size_t y);
+void terminal_scroll(size_t lines);
 void terminal_putchar(char c);
 void terminal_writestring(const char *str);
 void terminal_clear();
