@@ -18,3 +18,11 @@ Dependencies
 
 * i686-elf toolchain
 * grub (if you wish to create a bootable ISO image)
+
+To-Do
+-----
+
+* sleep functionality using interrupts
+* speaker functionality using sleep
+* keyboard input
+* clean up file organization
