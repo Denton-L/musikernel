@@ -36,12 +36,12 @@ void terminal_scroll(size_t lines) {
 	size_t column;
 	size_t row;
 
-	for (row = 0; row + lines < VGA_HEIGHT; row++) {
-		for (column = 0; column < VGA_WIDTH; column++)
+	for (row = 0; row + lines < VGA_HEIGHT; ++row) {
+		for (column = 0; column < VGA_WIDTH; ++column)
 			terminal_putentryat(terminal_getentryat(column, row + lines), column, row);
 	}
-	for (; row < VGA_HEIGHT; row++) {
-		for (column = 0; column < VGA_WIDTH; column++)
+	for (; row < VGA_HEIGHT; ++row) {
+		for (column = 0; column < VGA_WIDTH; ++column)
 			terminal_putentryat(blank, column, row);
 	}
 }
@@ -80,7 +80,7 @@ void terminal_clear() {
 	terminal_column = 0;
 	terminal_row = 0;
 
-	for (index = 0; index < VGA_WIDTH * VGA_HEIGHT; index++)
+	for (index = 0; index < VGA_WIDTH * VGA_HEIGHT; ++index)
 		terminal_buffer[index] = blank;
 }
 
