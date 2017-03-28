@@ -3,8 +3,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
-static const size_t VGA_WIDTH = 80;
-static const size_t VGA_HEIGHT = 25;
+#define VGA_WIDTH 80
+#define VGA_HEIGHT 25
 
 static size_t terminal_column;
 static size_t terminal_row;
