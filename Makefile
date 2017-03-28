@@ -3,7 +3,7 @@ AS = i686-elf-as
 
 linker_file = linker.ld
 assembly_objects = boot.o
-c_objects = string.o terminal.o musikernel.o
+c_objects = sys.o string.o terminal.o musikernel.o
 objects = $(assembly_objects) $(c_objects)
 output_binary = musikernel.bin
 output_iso = musikernel.iso
