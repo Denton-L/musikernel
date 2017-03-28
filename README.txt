@@ -26,3 +26,5 @@ To-Do
 * speaker functionality using sleep
 * keyboard input
 * clean up file organization
+* add different sound waveforms using PWM
+* playback???
