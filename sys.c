@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-void halt() {
+inline void halt() {
 	asm volatile ("hlt");
 }
 
