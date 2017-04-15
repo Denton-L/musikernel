@@ -15,7 +15,6 @@
 s_bottom:
 		.skip	16384				# Reserve 16 KiB of memory for the stack
 s_top:
-
 		.section	.text
 		.global	_start
 		.type	_start, @function
